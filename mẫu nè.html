@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Website</title>
+	<style>
+		title {
+  text-align: center;
+}
+		:root {
+  --box-color: blue;
+}
+
+#box {
+  width: 50px;
+  height: 50px;
+  background-color: var(--box-color);
+  border-radius: 50%;
+  position: relative;
+  animation-name: move;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transition: background-color 0.5s ease-in-out;
+}
+		@keyframes move {
+			from {
+				left: 0;
+			}
+			to {
+				left: 1000px;
+			}
+		}
+
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		header {
+			background-color: #250000;
+			color: #fff;
+			padding: 20px;
+		}
+		
+		h1 {
+			margin: 0;
+		}
+		
+		nav {
+			background-color: #666;
+			color: #fff;
+			padding: 10px;
+		}
+		
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+		
+		nav a {
+			color: #fff;
+			text-decoration: none;
+		}
+		
+		main {
+			padding: 20px;
+		}
+		
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>My Website</h1>
+	</header>
+	<div id="box"></div>
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+	</nav>
+	<main>
+		<p>Welcome to my website!</p>
+		<p>Chào tao đang thử gắn CSS với JavaScript vào cái quần què này.</p>
+		<button id="change-color-button">Change background color</button>
+		<button id="click">click here</button>
+	</main>
+	<footer>
+		&copy; My Website 2023
+	</footer>
+	<script>
+		const button = document.querySelector('#change-color-button');
+		const body = document.querySelector('body');
+		button.addEventListener('click', () => {
+		  body.style.backgroundColor = getRandomColor();
+		});
+	
+		function getRandomColor() {
+		  const letters = '0123456789ABCDEF';
+		  let color = '#';
+		  for (let i = 0; i < 6; i++) {
+			color += letters[Math.floor(Math.random() * 16)];
+		  }
+		  return color;
+		}
+	</script>
+	<script>
+		const box = document.getElementById('box');
+		box.addEventListener('click', () => {
+		  const newColor = getRandomColor();
+		  box.style.setProperty('--box-color', newColor);
+		});
+	  </script>	  
+</body>
+</html>
